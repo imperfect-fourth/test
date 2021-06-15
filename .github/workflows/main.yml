@@ -1,0 +1,17 @@
+on:
+  pull_request:
+    types: [opened]
+    
+jobs:
+  thank-user:
+    runs-on: ubuntu-20.04
+    name: Say thanks for the PR
+    steps:
+      - name: comment on the pull request
+        uses: imperfect-fourth/comment-progress@enums
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: 'my-org/my-repo'
+          number: ${{ github.event.number }}
+          id: thank-you-comment
+          message: 'Thank you for opening this PR :pray:'
