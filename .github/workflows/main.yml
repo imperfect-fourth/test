@@ -15,3 +15,6 @@ jobs:
           number: ${{ github.event.number }}
           id: thank-you-comment
           message: 'Thank you for opening this PR :pray:'
+      - name: echo var
+        run: |
+          echo ${{ github.event.inputs.version }}
