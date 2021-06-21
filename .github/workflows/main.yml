@@ -21,6 +21,6 @@ jobs:
           id: thank-you-comment
           message: 'Thank you for opening this PR :pray:'
       - name: echo var
-        if: ! github.event.inputs.version
+        if: github.event.inputs.version == '' || github.event.inputs.version == 22
         run: |
           echo ${{ github.event.inputs.version }}
