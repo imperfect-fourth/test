@@ -12,14 +12,6 @@ jobs:
     runs-on: ubuntu-20.04
     name: Say thanks for the PR
     steps:
-      - name: comment on the pull request
-        uses: imperfect-fourth/comment-progress@enums
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: 'imperfect-fourth/test'
-          number: ${{ github.event.number }}
-          id: thank-you-comment
-          message: 'Thank you for opening this PR :pray:'
       - name: echo var
         if: github.event.inputs.version == '' || github.event.inputs.version == 22
         run: |
