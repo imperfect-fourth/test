@@ -1,6 +1,11 @@
 on:
   pull_request:
     types: [opened]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "version"
+        reuired: true
     
 jobs:
   thank-user:
@@ -16,5 +21,6 @@ jobs:
           id: thank-you-comment
           message: 'Thank you for opening this PR :pray:'
       - name: echo var
+        if: !github.event.inputs.version
         run: |
           echo ${{ github.event.inputs.version }}
